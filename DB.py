@@ -10,8 +10,8 @@ def insert_user():
             
         "userid":"6"
         ,
-        "Address":"Whitefield",
-        "FirstName": "Kishan",
+        "Address":"sagar",
+        "FirstName": "amanishan",
         "flat": ""
         ,
         "FlatVisit": "204"
