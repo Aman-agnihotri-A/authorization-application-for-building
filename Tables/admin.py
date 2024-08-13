@@ -6,3 +6,9 @@ class Admin():
         self.address = address
         self.username = username
         self.password = password
+
+    def createAdmin(self,first_name, Last_name, phone_no, address, username, password):
+        return (
+
+
+        )
