@@ -1,7 +1,0 @@
-switching the DB to AWS DynamoDB.
-
-
-
-1. login page
-2. for Admin --> profile,DB access to see all info ,Resident list,
-3. for Resident -->profile,access to see residents list,who visited them and when
