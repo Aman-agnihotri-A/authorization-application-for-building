@@ -1,4 +1,4 @@
-from flask import Flask , render_template, request
+from flask import Flask , render_template, request , url_for , redirect
 import DB
 from Users import Users as user
 
@@ -10,7 +10,7 @@ def printword(word):
     print(word)
 
 
-@app.route('/',methods=["GET","POST"])
+@app.route('/postlogin.html',methods=["GET","POST"])
 def insertVisitor():
     loginType="Visitor"
     if request.method=="POST":
@@ -24,7 +24,31 @@ def insertVisitor():
         Items=Item.visitior_to_dict()
         print(Items)
         DB.insert_user(Items)
-    return render_template('/index.html')
+    return render_template('/postlogin.html')
+
+@app.route('/postlogin<values>')
+def postlog(values):
+    print(values)
+    username=values[0]
+    print(username)
+    return render_template('postlogin.html',username=username)
+
+
+@app.route('/login',methods=["GET","POST"])
+def login():
+    userid=""
+    if request.method=="POST":
+        userid=request.form["username"]
+        pwd=request.form["password"]
+        print(userid+" "+pwd)
+        list1=[]
+        list1.append(userid)
+        list1.append(pwd)
+    if userid !="" and pwd !="":
+        return redirect(url_for('postlog',values=list1))
+    else:
+        return render_template('/index.html')
+    
 
 
 if __name__ == "__main__":
